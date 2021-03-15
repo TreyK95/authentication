@@ -9,12 +9,12 @@ const NavBar = () => {
     <div>
       <Menu>
         <Link to='/'>
-        <Menu.Item active={pathname == '/'}>
+        <Menu.Item active={pathname === '/'}>
           Home
         </Menu.Item>
         </Link>
         <Link to='/about'>
-          <Menu.Item active={pathname == '/about'}>
+          <Menu.Item active={pathname === '/about'}>
             About
           </Menu.Item>
         </Link>

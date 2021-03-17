@@ -1,16 +1,25 @@
 import React from 'react'
 import Button from '../components/Button'
+import Card from '../components/Card'
 import CardContainer from '../components/CardContainer'
 import FormattedMessage from '../components/FormattedMessage'
+import HookDemo from '../components/HookDemo'
+import LoadDataDemo from '../components/LoadDataDemo'
 import RegisterFormDemo from '../components/RegisterFormDemo'
 
 const ComponentDemo = () => {
   return (
     <>
     <h1>My Components</h1>
+    <Card header='Loading Data Demo'>
+      <HookDemo />
+      <LoadDataDemo/>
+    </Card>
+    <Card header='Buttons'>
     <Button primary>Primary Button</Button>
     <Button>My Button</Button>
-    <CardContainer>
+    </Card>
+    <Card header='Formatted Messages'>
         <FormattedMessage type='Alert'>
           Alert Message
         </FormattedMessage>
@@ -20,16 +29,16 @@ const ComponentDemo = () => {
         <FormattedMessage>
           Notify Message
         </FormattedMessage>
-    </CardContainer>
+    </Card>
     <CardContainer>
       <h1>Hello World</h1>
     </CardContainer>
     <CardContainer>
       <h1>World</h1>
     </CardContainer>
-    <CardContainer>
+    <Card header='Form Demo'>
       <RegisterFormDemo />      
-    </CardContainer>
+    </Card>
     </>
   )
 }

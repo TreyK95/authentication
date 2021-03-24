@@ -25,12 +25,11 @@ const Home = () => {
 
 }
 if(loading) return <p>Loading</p>
+if(!user) return <p>Please Register or Login</p>
   return (
     <div>
-      <h1>Home</h1>
-      {/* {testData && testData.dataHere}
-      <p>User Name: {user.name}</p>
-      <p>Age: {user.age}</p> */}
+      <h1>Welcome Home {user.email}</h1>
+      {/* {testData && testData.dataHere} */}
     </div>
   )
 }

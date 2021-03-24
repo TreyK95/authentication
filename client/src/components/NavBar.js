@@ -2,6 +2,10 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
 
+// class NavBar extends React.Component {
+
+// }
+
  
 const NavBar = () => {
   const {pathname} = useLocation()

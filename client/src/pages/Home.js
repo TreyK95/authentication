@@ -1,10 +1,13 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import axios from 'axios'
+import { AuthContext } from '../providers/AuthProvider'
 
 
 const Home = () => {
   const [testData, setTestData] = useState(null)
   const [loading, setLoading] = useState(true)
+  const {user} = useContext(AuthContext)
+
 
   useEffect(() => {
     getData()
@@ -26,6 +29,8 @@ if(loading) return <p>Loading</p>
     <div>
       <h1>Home</h1>
       {testData && testData.dataHere}
+      <p>User Name: {user.name}</p>
+      <p>Age: {user.age}</p>
     </div>
   )
 }

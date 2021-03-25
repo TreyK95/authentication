@@ -5,7 +5,7 @@ import Loader from '../components/Loader'
 import Post from "./Post"
 
 const Posts = () => {
-  const [posts, setPosts] = useState([{name: 'Jack Daniels', description: 'cool cool cool', likes: 0}, {name: 'McDonalds', description: 'french fries', likes: 10}])
+  const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(()=>{
@@ -26,17 +26,21 @@ const Posts = () => {
   }
 
   const renderPosts = () => {
-    return posts.map(post => {
-      return(
-        <Card>
-          <Card.Content header={post.name} />
-          <Card.Content description={post.description}/>
-          <Card.Content extra>
-            <Icon name='user' /> {post.likes} Likes
-          </Card.Content>
-        </Card>
-      )
-    })
+    if(posts){
+      return posts.map(post => {
+        return(
+          <Card>
+            <Card.Content header={post.name} />
+            <Card.Content description={post.description}/>
+            <Card.Content extra>
+              <Icon name='like' /> {post.likes} Likes
+            </Card.Content>
+          </Card>
+        )
+      })
+    } else{
+      return <h1>You have no posts! Why don't you make one?</h1>
+    }
   }
 
   if(loading) return <Loader />

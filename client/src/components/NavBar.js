@@ -23,14 +23,14 @@ class Navbar extends React.Component {
           <Link to='/login'>
             <Menu.Item
               id='login'
-              name='login'
+              name='Sign in'
               active={location.pathname === '/login'}
             />
           </Link>
           <Link to='/register'>
             <Menu.Item
               id='register'
-              name='register'
+              name='Sign Up'
               active={location.pathname === '/register'}
             />
           </Link>
@@ -45,7 +45,7 @@ class Navbar extends React.Component {
         <Menu pointing secondary>
           <Link to='/'>
             <Menu.Item
-              name='home'
+              name='myFriendster'
               id='home'
               active={this.props.location.pathname === '/'}
             />

@@ -26,9 +26,10 @@ class Register extends React.Component {
   const { email, password, passwordConfirmation} = this.state
 
   return (
-    <Segment basic>
-    <Header as='h1' textAlign='center'>Register</Header>
-    <Form onSubmit={this.handleSubmit}>
+    <Segment inverted>
+    <Header as='h1' textAlign='center'>Sign Up</Header>
+    <Form inverted onSubmit={this.handleSubmit}>
+      <Form.Group widths="equal">
       <Form.Input
       label="Email:"
       required
@@ -56,8 +57,9 @@ class Register extends React.Component {
       type="password"
       onChange={this.handleChange}
       />
-      <Segment textAlign='center' basic>
-        <Button primary color='green' type='submit'>Register</Button>
+      </Form.Group>
+      <Segment textAlign='center' inverted>
+        <Button primary color='green' type='submit'>Sign Up</Button>
       </Segment>
     </Form>
     </Segment>

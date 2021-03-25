@@ -11,6 +11,7 @@ import ConnectedFetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectedRoute';
 import NoMatch from './components/NoMatch';
 import Posts from './pages/Posts';
+import People from './pages/People';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
     <Container>
       <Switch>
         <ProtectedRoute exact path="/" component={Home}/>
-        <Route exact path="/" component={Home} />
+        <ProtectedRoute exact path='/people' component={People}/>
         <Route exact path='/about' component={About}/>
         <Route exact path='/componentDemo' component={ComponentDemo}/>
         <Route exact path='/register' component={Register}/>

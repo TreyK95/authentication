@@ -7,20 +7,27 @@ import ComponentDemo from './pages/ComponentDemo';
 import { Container } from 'semantic-ui-react';
 import Register from './pages/Register';
 import ConnectedLogin from './pages/Login';
+import ConnectedFetchUser from './components/FetchUser';
+import ProtectedRoute from './components/ProtectedRoute';
+import NoMatch from './components/NoMatch';
 
 function App() {
   return (
     <>
     <NavBar/>
+    <ConnectedFetchUser>
     <Container>
       <Switch>
+        <ProtectedRoute exact path="/" component={Home}/>
         <Route exact path="/" component={Home} />
         <Route exact path='/about' component={About}/>
         <Route exact path='/componentDemo' component={ComponentDemo}/>
         <Route exact path='/register' component={Register}/>
         <Route exact path='/login' component={ConnectedLogin}/>
+        <Route component={NoMatch}/>
       </Switch>
       </Container>
+      </ConnectedFetchUser>
     </>
   );
 }

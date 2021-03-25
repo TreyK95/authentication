@@ -48,7 +48,7 @@ class Register extends React.Component {
       onChange={this.handleChange}
       />
       <Form.Input
-      label="Password Confirmation"
+      label="Password Confirmation:"
       required
       name="passwordConfirmation"
       value={passwordConfirmation}

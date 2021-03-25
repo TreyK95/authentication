@@ -23,9 +23,6 @@ gem 'puma', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem "devise_token_auth"
 
- gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 
-  'master'
-
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
@@ -43,6 +40,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'pry-rails'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

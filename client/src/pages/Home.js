@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useContext} from 'react'
 import axios from 'axios'
 import { AuthContext } from '../providers/AuthProvider'
+import {Header} from 'semantic-ui-react'
 
 
 const Home = () => {
@@ -28,8 +29,7 @@ if(loading) return <p>Loading</p>
 if(!user) return <p>Please Register or Login</p>
   return (
     <div>
-      <h1>Welcome to myFriendster {user.email}</h1>
-      {/* {testData && testData.dataHere} */}
+       <Header as='h1' textAlign='center'>Welcome to myFriendster: {user.email}</Header>
     </div>
   )
 }

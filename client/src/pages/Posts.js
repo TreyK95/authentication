@@ -32,7 +32,7 @@ const Posts = () => {
           <Card.Content header={post.name} />
           <Card.Content description={post.description}/>
           <Card.Content extra>
-            <Icon name='user' /> {post.likes} Likes
+            <Icon name='thumbs up' /> {post.likes} Likes
           </Card.Content>
         </Card>
       )

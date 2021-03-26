@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Header, Segment } from 'semantic-ui-react';
+import { Form, Grid, GridColumn, Header, Segment } from 'semantic-ui-react';
 import Button from '../components/Button';
 import { AuthConsumer } from '../providers/AuthProvider';
 
@@ -26,6 +26,8 @@ class Register extends React.Component {
   const { email, password, passwordConfirmation} = this.state
 
   return (
+    <Grid textAlign='center' style={{ height: '100vh'}} verticalAlign='middle'>
+        <Grid.Column style={{maxWidth: 650}}>
     <Segment inverted>
     <Header as='h1' textAlign='center'>Sign Up</Header>
     <Form inverted onSubmit={this.handleSubmit}>
@@ -63,6 +65,8 @@ class Register extends React.Component {
       </Segment>
     </Form>
     </Segment>
+    </Grid.Column>
+    </Grid>
   )
   }
 }

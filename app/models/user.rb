@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ActiveRecord::Base
+  has_many :posts, dependent: :destroy
   serialize :added_buddies, Array
 
   extend Devise::Models

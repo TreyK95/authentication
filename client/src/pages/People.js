@@ -1,3 +1,5 @@
+// this page will be for people that have not yet been friended by anyone. 
+
 import React from 'react'
 
 const People = () => {

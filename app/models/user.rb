@@ -2,7 +2,7 @@
 
 class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
-  serialize :added_buddies, Array
+  serialize :liked_buddies, Array
 
   extend Devise::Models
   # Include default devise modules. Others available are:
@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     Buddy.where("id NOT IN (?)", ids).order("RANDOM()")
   end
 
-  def self.added(ids)
+  def self.liked(ids)
     ids = ids.empty? ? [0] : ids
     Buddy.where("id IN (?)", ids)
   end

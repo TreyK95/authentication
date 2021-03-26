@@ -52,11 +52,11 @@ const People = () => {
 
   const addBuddy = async (id) => {
     try{
-      const myBuddies = buddies.filter( buddy => buddy.id === id)
-      setAddedBuddies(myBuddies)
-      console.log('mybuddies', addedBuddies)
+      let res = await axios.put(`/api/buddies/${id}/add_buddy`)
+      console.log('added buddy', id)
+      // toggle add buddy button to disappear
     }catch(err){
-    alert(err)
+      alert('adding buddy failed')
     }
   }
   

@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resources :posts
     put'/posts/:id/likes', to:'posts#likes'
     resources :buddies
+    get'my_buddies', to:'buddies#my_buddies'
+    put'buddies/:id/add_buddy', to:'buddies#add_buddy'
   end 
 end

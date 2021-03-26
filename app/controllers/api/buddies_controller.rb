@@ -1,5 +1,5 @@
 class Api::BuddiesController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   
   def index
@@ -27,9 +27,25 @@ class Api::BuddiesController < ApplicationController
       render json: { errors: buddy.errors }, status: :unprocessable_entity
     end
   end
+
+  def add_buddy
+    current_user.liked_buddies << params[:id].to_i
+    current_user.save
+  end
+
+  def remove_buddy
+    current_user.liked_buddies >> params[:id].to_i
+    current_user.save
+  end
+
   
   def destroy
     render json: Buddy.find(params[:id]).destroy
+  end
+
+
+  def my_buddies
+    render json: User.liked(current_user.liked_buddies)
   end
   
   private

@@ -33,6 +33,8 @@ class Api::PostsController < ApplicationController
 
   def likes 
     liked_post = current_user.posts.find(params[:id])
+    puts 'in likes'
+    puts liked_post
     if liked_post.update(post_params)
       render json: liked_post
     else

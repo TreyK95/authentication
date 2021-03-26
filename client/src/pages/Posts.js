@@ -35,6 +35,20 @@ const Posts = () => {
       console.log(err)
     }
   }
+
+  const likePost = async (updatedObj, id) => {
+    try {
+      updatedObj.likes += 1
+      let res = await axios.put(`/api/posts/${id}/likes`, {...updatedObj})
+      let newPostsArr = posts.map(post => post.id === id ? res.data : post)
+      setPosts(newPostsArr)
+      console.log(res.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+
   const renderPosts = () => {
     if(posts.length >= 1){
       return posts.map(post => {
@@ -43,7 +57,7 @@ const Posts = () => {
             <Card.Content header={post.name} />
             <Card.Content description={post.description}/>
             <Card.Content extra >
-              <Icon name='like'/> {post.likes} Likes
+              <Icon name='like' onClick={()=>likePost({...post}, post.id)}/> {post.likes} Likes
             </Card.Content>
             <Card.Content style={{display: 'flex'}}>
               <Link to={`/postForm/${post.id}`}>

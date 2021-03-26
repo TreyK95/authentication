@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     get "/api_test", to:'static#api_test'
     resources :posts
-    get'/posts/:id', to:'posts#likes'
+    put'/posts/:id/likes', to:'posts#likes'
     resources :buddies
   end 
 end

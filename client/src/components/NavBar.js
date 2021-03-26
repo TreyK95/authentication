@@ -1,7 +1,8 @@
 import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Menu, } from 'semantic-ui-react'
+import { Menu, Segment, } from 'semantic-ui-react'
 import { Link, withRouter, } from 'react-router-dom'
+import Button from './Button';
 
 class Navbar extends React.Component {
   
@@ -42,7 +43,8 @@ class Navbar extends React.Component {
   render() {
     return (
       <div>
-        <Menu pointing secondary>
+        <Segment inverted>
+        <Menu inverted pointing secondary>
           <Link to='/'>
             <Menu.Item
               name='myFriendster'
@@ -66,6 +68,7 @@ class Navbar extends React.Component {
           </Link>
             { this.rightNavItems() }
         </Menu>
+        </Segment>
       </div>
     )
   }

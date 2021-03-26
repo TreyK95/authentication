@@ -1,5 +1,5 @@
 class Api::BuddiesController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   
   def index
@@ -7,8 +7,7 @@ class Api::BuddiesController < ApplicationController
   end
   
   def show
-    buddy = Buddy.find(params[:id])
-    render json: {buddy: buddy}
+    render json: Buddy.find(params[:id])
   end
   
   def create
@@ -30,8 +29,7 @@ class Api::BuddiesController < ApplicationController
   end
   
   def destroy
-    buddy = Buddy.find(params[:id]).destroy
-    render json: buddy
+    render json: Buddy.find(params[:id]).destroy
   end
   
   private

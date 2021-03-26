@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     get "/api_test", to:'static#api_test'
     resources :posts
     get'/api/posts/:id', to:'api/posts#likes'
+    resources :buddies
   end 
 end

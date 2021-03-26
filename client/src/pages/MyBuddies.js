@@ -2,14 +2,20 @@
 // can remove friends from this page
 
 
-import React from 'react'
+import axios from 'axios'
+import React, {useState, useContext, useEffect} from 'react'
+import { Card, Header, Image } from 'semantic-ui-react'
+
+import { AuthContext } from '../providers/AuthProvider'
+
 
 const MyBuddies = () => {
+  
+  
   return (
     <div>
       <h1>MyBuddies</h1>
-      <p>will render buddies that have been friended already</p>
-      
+     
 
       
     </div>

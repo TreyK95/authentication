@@ -8,22 +8,18 @@ const AddPostForm = () => {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
 
-  const handleSubmit = async () => {
-    // e.preventDefault()
-    console.log(name)
-    console.log(description)
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     try {
-      console.log(name)
-      console.log(description)
-      let res = await axios.post('/api/posts', {name, description})
-      console.log(name)
-      console.log(description)
+      let res = await axios.post('/api/posts', {name, description, likes: 0})
       console.log(res)
       history.push('/posts')
     } catch (err) {
       console.log(err)
     }
   }
+
+  
   return(
     <Form onSubmit={handleSubmit}>
       <Header as="h1" textAlign="center">Create New Post</Header>

@@ -1,22 +1,34 @@
 import axios from "axios";
-import { useState } from "react";
-import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router";
 import { Button, Form, Header } from "semantic-ui-react"
 
 const EditPostForm = () => {
   const {id} = useParams()
+  const history = useHistory()
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
+
+  useEffect(()=>{
+    getData()
+  },[])
+
+  const getData = async () => {
+    try {
+      let res = await axios.get(`/api/posts/${id}`)
+      setName(res.data.name)
+      setDescription(res.data.description)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     
     try {
-      if(id){
-        axios.put(`/api/posts/${id}`, {name, description})
-      } else {
-        axios.post('/api/posts', {name, description, likes: 0})
-      }
+      axios.put(`/api/posts/${id}`, {name, description})
+      history.push('/posts')
     } catch (err) {
       console.log(err)
     }

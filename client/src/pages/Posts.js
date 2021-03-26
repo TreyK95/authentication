@@ -13,12 +13,13 @@ const Posts = () => {
     getData()
   }, [])
 
+  console.log('posts:')
   console.log(posts)
   const getData = async () => {
     try {
       // setPosts([{name: 'Jack Daniels', description: 'cool cool cool', likes: 0},{name: 'McDonalds', description: 'french fries', likes: 20}])
       let res = await axios.get('api/posts')
-      console.log(res.data)
+      setPosts(res.data)
     } catch (err) {
       console.log(err)
     } finally {
@@ -27,14 +28,14 @@ const Posts = () => {
   }
 
   const renderPosts = () => {
-    if(posts){
+    if(posts.length >= 1){
       return posts.map(post => {
         return(
           <Card>
             <Card.Content header={post.name} />
             <Card.Content description={post.description}/>
-            <Card.Content extra>
-              <Icon name='like' /> {post.likes} Likes
+            <Card.Content extra >
+              <Icon name='like'/> {post.likes} Likes
             </Card.Content>
             <Link to={`/postForm/${post.id}`}>
               <Button>Edit Post</Button>

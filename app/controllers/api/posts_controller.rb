@@ -5,8 +5,12 @@ class Api::PostsController < ApplicationController
     render json: current_user.posts
   end
 
+  def show 
+    render json: current_user.posts.find(params[:id])
+  end
+
   def create
-    new_post = current_user.posts.new()
+    new_post = current_user.posts.new(post_params)
     if new_post.save
       render json: new_post
     else
@@ -30,6 +34,6 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:name, :description)
+    params.require(:post).permit(:name, :description, :likes)
   end
 end

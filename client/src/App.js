@@ -15,6 +15,7 @@ import People from './pages/People';
 import AddPostForm from './pages/AddPostForm';
 import EditPostForm from './pages/EditPostForm';
 
+import MyBuddies from './pages/MyBuddies';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <ProtectedRoute exact path='/posts' component={Posts} />
         <ProtectedRoute exact path='/postForm' component={AddPostForm} />
         <ProtectedRoute exact path='/postForm/:id' component={EditPostForm} />
+        <ProtectedRoute exact path='/mybuddies' component={MyBuddies} />
         <Route component={NoMatch}/>
       </Switch>
       </Container>

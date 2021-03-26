@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     resources :buddies
     get'my_buddies', to:'buddies#my_buddies'
     put'buddies/:id/add_buddy', to:'buddies#add_buddy'
+    # delete'buddies/:id/remove_buddy', to:'buddies#remove_buddy'
+    # destroy'my_buddies', to:'buddies#my_buddies'
+    delete'my_buddies/:id', to:'buddies#destroy'
+    put'my_buddies/:id', to:'buddies#remove_buddy'
   end 
 end

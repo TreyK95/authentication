@@ -28,6 +28,34 @@ const MyBuddies = () => {
     }
   }
 
+  const filterBuddy = (id) => {
+   const currentBuddies = buddies.filter ( buddy => buddy.id !== id)
+   setBuddies(currentBuddies)
+  }
+
+  const removeBuddy = async (id) => {
+    try{
+      console.log('test destroy buddy')
+      let res = await axios.put(`/api/my_buddies/${id}`)
+      console.log('removed buddywithput', id)
+      filterBuddy(id)
+      // window.location.reload()
+    }catch(err){
+      alert('removing buddy failed')
+    }
+  }
+
+  // const removeBuddy = async (id) => {
+  //   try{
+  //     console.log('test destroy buddy')
+  //     let res = await axios.delete(`/api/my_buddies/${id}`)
+  //     console.log('removed buddy', id)
+  //     filterBuddy(id)
+  //     // window.location.reload()
+  //   }catch(err){
+  //     alert('removing buddy failed')
+  //   }
+  // }
   return (
     <>
     <div>
@@ -41,7 +69,7 @@ const MyBuddies = () => {
               <Card.Header>{buddy.name}</Card.Header>
               <Card.Meta>{buddy.email}{buddy.id}</Card.Meta>
             </Card.Content>
-            <Button>Remove Buddy</Button>
+            <Button onClick={()=>removeBuddy(buddy.id)}>Remove Buddy</Button>
           </Card>
           )}
       </Card.Group>

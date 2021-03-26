@@ -34,7 +34,8 @@ class Api::BuddiesController < ApplicationController
   end
 
   def remove_buddy
-    current_user.liked_buddies >> params[:id].to_i
+    # buddygone= current_user.liked_buddies.find(params[:id]).to_s.to_i
+    current_user.liked_buddies.pop(params[:id].to_i)
     current_user.save
   end
 
@@ -42,7 +43,16 @@ class Api::BuddiesController < ApplicationController
   def destroy
     render json: Buddy.find(params[:id]).destroy
   end
+  
+  # def remove_buddy
+  #   render json: current_user.liked_buddies.find(params[:id].to_i).destroy
+  # end
 
+
+  # def remove_mybuddy
+  #   render json: User.get_non_buddies(current_user.liked_buddies)
+    
+  # end
 
   def my_buddies
     render json: User.liked(current_user.liked_buddies)

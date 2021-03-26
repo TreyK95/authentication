@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   namespace :api do
     get "/api_test", to:'static#api_test'
     resources :posts
+    get'/api/posts/:id', to:'api/posts#likes'
   end 
 end

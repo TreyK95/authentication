@@ -6,13 +6,15 @@ import axios from 'axios'
 import React, {useState, useContext, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Card, Header, Image } from 'semantic-ui-react'
-
+import { useHistory }  from 'react-router'
 import { AuthContext } from '../providers/AuthProvider'
 
 
 const People = () => {
+  const history = useHistory() 
   const [buddies, setBuddies] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [addedBuddies, setAddedBuddies] = useState([])
   const { user } = useContext(AuthContext)
   
   useEffect(()=>{
@@ -34,14 +36,32 @@ const People = () => {
   }
   // const buddy =  buddy[Math.floor(Math.random() * buddies.length)]
   
-  const deleteBuddy = (id) => {
-    const newBuddies = buddies.filter( buddy => buddy.id !== id)
-    setBuddies(newBuddies)
-  }
+  // const deleteBuddy = (id) => {
+  //   const newBuddies = buddies.filter( buddy => buddy.id !== id)
+  //   setBuddies(newBuddies)
+  // }
  
-  // const addBuddy = (id) => {}
+  const deleteBuddy = async (id) => {
+    try {
+      await axios.delete(`/api/buddies/${id}`)
+      window.location.reload()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const addBuddy = async (id) => {
+    try{
+      const myBuddies = buddies.filter( buddy => buddy.id === id)
+      setAddedBuddies(myBuddies)
+      console.log('mybuddies', addedBuddies)
+    }catch(err){
+    alert(err)
+    }
+  }
+  
   // if(loading) return <p>Loading potential buddies, please wait</p>
-  // if(buddies !== null && buddies.length < 1 ) return <p>No more potential buddies</p>
+  
   
   const renderBuddies = () => {
     if(buddies !== null && buddies.length > 1){
@@ -59,13 +79,15 @@ const People = () => {
               {buddy.email}
             </Card.Description>
             <Button onClick={()=>deleteBuddy(buddy.id)}>Block Buddy </Button>
+            <Button onClick={()=>addBuddy(buddy.id)} color='green'>Add To My Buddies</Button>
           </Card>
+
         )
       })
     }
   }
   
-  // todo create the link in app.js for the new buddy form
+ 
   return (
     <div>
       <h1>MyBuddies</h1>
@@ -80,4 +102,4 @@ const People = () => {
 }
 
 
-export default People
+export default People;

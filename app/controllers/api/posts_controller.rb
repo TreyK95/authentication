@@ -23,12 +23,21 @@ class Api::PostsController < ApplicationController
     if post.update(post_params)
       render json: post
     else
-      render json: {errors: job.errors}, status: 422
+      render json: {errors: post.errors}, status: 422
     end
   end
 
   def destroy
     render json: current_user.posts.find(params[:id]).destroy
+  end
+
+  def likes 
+    liked_post = current_user.posts.find(params[:id])
+    if liked_post.update(post_params)
+      render json: liked_post
+    else
+      render json: {errors: liked_post.errors}, status: 422
+    end
   end
 
   private

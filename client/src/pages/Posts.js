@@ -16,9 +16,9 @@ const Posts = () => {
   console.log(posts)
   const getData = async () => {
     try {
-      setPosts([{name: 'Jack Daniels', description: 'cool cool cool', likes: 0},{name: 'McDonalds', description: 'french fries', likes: 20}])
-      // let res = await axios.get('api/posts')
-      // console.log(res.data)
+      // setPosts([{name: 'Jack Daniels', description: 'cool cool cool', likes: 0},{name: 'McDonalds', description: 'french fries', likes: 20}])
+      let res = await axios.get('api/posts')
+      console.log(res.data)
     } catch (err) {
       console.log(err)
     } finally {
@@ -36,6 +36,9 @@ const Posts = () => {
             <Card.Content extra>
               <Icon name='like' /> {post.likes} Likes
             </Card.Content>
+            <Link to={`/postForm/${post.id}`}>
+              <Button>Edit Post</Button>
+            </Link>
           </Card>
         )
       })

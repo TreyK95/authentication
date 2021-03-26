@@ -14,4 +14,4 @@ require "faker"
   Buddy.create(name: name, email: email, avatar: avatar)
 end
 
-puts "#{Buddy.all.size}seeded"
+puts "#{Buddy.all.size} buddies seeded"

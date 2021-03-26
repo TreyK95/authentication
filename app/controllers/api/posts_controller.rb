@@ -27,8 +27,8 @@ class Api::PostsController < ApplicationController
     end
   end
 
-  def delete
-    render json: current_user.posts.find(params[id]).destroy
+  def destroy
+    render json: current_user.posts.find(params[:id]).destroy
   end
 
   private

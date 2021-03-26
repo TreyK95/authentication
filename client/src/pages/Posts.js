@@ -27,6 +27,14 @@ const Posts = () => {
     }
   }
 
+  const deletePost = async (id) => {
+    try {
+      await axios.delete(`/api/posts/${id}`)
+      window.location.reload()
+    } catch (err) {
+      console.log(err)
+    }
+  }
   const renderPosts = () => {
     if(posts.length >= 1){
       return posts.map(post => {
@@ -37,9 +45,12 @@ const Posts = () => {
             <Card.Content extra >
               <Icon name='like'/> {post.likes} Likes
             </Card.Content>
-            <Link to={`/postForm/${post.id}`}>
-              <Button>Edit Post</Button>
-            </Link>
+            <Card.Content style={{display: 'flex'}}>
+              <Link to={`/postForm/${post.id}`}>
+                <Button>Edit Post</Button>
+              </Link>
+              <Button onClick={()=>deletePost(post.id)}>Delete Post</Button>
+            </Card.Content>
           </Card>
         )
       })

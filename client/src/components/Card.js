@@ -10,7 +10,7 @@ const Card = (props) => {
     <CardContainer>
       <header style={{marginBottom: MARGIN, display:'flex', justifyContent:'space-between'}}>
         <h3>{header}</h3>
-        <p onClick={()=> {setHideBody(!hideBody)}}>{hideBody ? 'show ICON': 'hide ICON'}</p>
+        <p onClick={()=> {setHideBody(!hideBody)}}>{hideBody ? 'Show': 'Hide'}</p>
       </header>
       <Fade hide={hideBody}>
       {children}

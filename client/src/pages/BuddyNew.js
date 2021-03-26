@@ -14,7 +14,7 @@ const AddBuddyForm = () => {
     try {
       let res = await axios.post('/api/buddies', {name, email, avatar})
       console.log(res)
-      history.push('/buddies')
+      history.push('/people')
     } catch (err) {
       console.log(err)
     }

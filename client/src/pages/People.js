@@ -4,7 +4,8 @@
 
 import axios from 'axios'
 import React, {useState, useContext, useEffect} from 'react'
-import { Card, Header, Image } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import { Button, Card, Header, Image } from 'semantic-ui-react'
 
 import { AuthContext } from '../providers/AuthProvider'
 
@@ -33,10 +34,10 @@ const People = () => {
   }
   // const buddy =  buddy[Math.floor(Math.random() * buddies.length)]
   
-  // const removeBuddy = (id) => {
-  //   const newBuddies = buddies.filter( buddy => buddy.id !== id)
-  //   setBuddies(newBuddies)
-  // }
+  const deleteBuddy = (id) => {
+    const newBuddies = buddies.filter( buddy => buddy.id !== id)
+    setBuddies(newBuddies)
+  }
  
   // const addBuddy = (id) => {}
   // if(loading) return <p>Loading potential buddies, please wait</p>
@@ -57,15 +58,20 @@ const People = () => {
             <Card.Description>
               {buddy.email}
             </Card.Description>
+            <Button onClick={()=>deleteBuddy(buddy.id)}>Block Buddy </Button>
           </Card>
         )
       })
     }
   }
   
+  // todo create the link in app.js for the new buddy form
   return (
     <div>
       <h1>MyBuddies</h1>
+      <Link to='/buddyNew'>
+        <Button>Create a New Buddy</Button>      
+      </Link>
       {renderBuddies()}
 
       

@@ -25,12 +25,12 @@ function App() {
     <Container>
       <Switch>
         <ProtectedRoute exact path="/" component={Home}/>
-        <ProtectedRoute exact path='/people' component={People}/>
+        <Route exact path='/people' component={People}/>
         <Route exact path='/about' component={About}/>
         <Route exact path='/componentDemo' component={ComponentDemo}/>
         <Route exact path='/register' component={Register}/>
         <Route exact path='/login' component={ConnectedLogin}/>
-        <ProtectedRoute exact path='/posts' component={Posts} />
+        <Route exact path='/posts' component={Posts} />
         <ProtectedRoute exact path='/postForm' component={AddPostForm} />
         <ProtectedRoute exact path='/postForm/:id' component={EditPostForm} />
         <ProtectedRoute exact path='/mybuddies' component={MyBuddies} />

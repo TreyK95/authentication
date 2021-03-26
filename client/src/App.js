@@ -12,6 +12,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import NoMatch from './components/NoMatch';
 import Posts from './pages/Posts';
 import People from './pages/People';
+import MyBuddies from './pages/MyBuddies';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route exact path='/register' component={Register}/>
         <Route exact path='/login' component={ConnectedLogin}/>
         <ProtectedRoute exact path='/posts' component={Posts} />
+        <ProtectedRoute exact path='/mybuddies' component={MyBuddies} />
         <Route component={NoMatch}/>
       </Switch>
       </Container>

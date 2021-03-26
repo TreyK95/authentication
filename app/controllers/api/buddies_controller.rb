@@ -1,6 +1,7 @@
 class Api::BuddiesController < ApplicationController
   before_action :authenticate_user!
 
+  
   def index
     render json: Buddy.all
   end

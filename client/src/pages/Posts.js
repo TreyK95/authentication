@@ -1,8 +1,9 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import { Card, Icon } from "semantic-ui-react"
+import Button from "../components/Button"
 import Loader from '../components/Loader'
-import Post from "./Post"
 
 const Posts = () => {
   const [posts, setPosts] = useState([])
@@ -15,7 +16,7 @@ const Posts = () => {
   console.log(posts)
   const getData = async () => {
     try {
-      // setPosts({name: 'Jack Daniels', description: 'cool cool cool', likes: 0})
+      setPosts([{name: 'Jack Daniels', description: 'cool cool cool', likes: 0},{name: 'McDonalds', description: 'french fries', likes: 20}])
       // let res = await axios.get('api/posts')
       // console.log(res.data)
     } catch (err) {
@@ -47,6 +48,9 @@ const Posts = () => {
   return(
     <>
       <h1>My Posts</h1>
+      <Link to='/postForm'>
+        <Button>New Post</Button>      
+      </Link>
       {renderPosts()}
     </>
   )

@@ -65,6 +65,7 @@ const People = () => {
     }
   }
   
+  // todo create the link in app.js for the new buddy form
   return (
     <div>
       <h1>MyBuddies</h1>

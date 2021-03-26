@@ -53,4 +53,4 @@ const AddBuddyForm = () => {
 
 
 
-export default AddPostForm;
+export default AddBuddyForm;
